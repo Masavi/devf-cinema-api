@@ -122,8 +122,8 @@ app.post('/api/v1/peliculas/', (req, res) => {
 app.get('/api/v1/peliculas/', (req, res) => {
     Pelicula
         .find()
+        .populate('directores')
         .exec()
-        .populate('peliculas')
         .then(listaPeliculas => {
             res.status(200).send(listaPeliculas);
         })
