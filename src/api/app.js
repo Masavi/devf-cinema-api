@@ -136,7 +136,7 @@ app.get('/api/v1/peliculas/:id/', (req, res) => {
     Pelicula
         //.find({_id: id})
         .findById(id)
-        .populate('peliculas')
+        .populate('directores')
         .exec()
         .then(pelicula => res.status(200).send(pelicula))
         .catch(error => {
